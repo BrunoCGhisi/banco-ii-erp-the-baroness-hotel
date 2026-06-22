@@ -19,8 +19,7 @@ export default function FormDialog({open, title, children, onClose, onSave }) {
             <DialogTitle>
                 <TitleText
                     titleText={title}
-                    variant="h5"
-                    sx={{ mb: 0 }}
+                    variant="h6"
                 />
             </DialogTitle>
 
