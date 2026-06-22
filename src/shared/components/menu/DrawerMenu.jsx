@@ -32,7 +32,7 @@ const drawerWidth = 240;
 const menuItems = [
     {
         text: "Hóspedes",
-        path: "/hospedes",
+        path: "/Hospedes",
         icon: <PeopleIcon />,
     },
 

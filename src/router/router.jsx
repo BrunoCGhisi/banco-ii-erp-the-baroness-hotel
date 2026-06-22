@@ -1,10 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import DrawerMenu from "../shared/components/menu";
+import {Categorias, Hospedes, Quartos} from "../pages/index.js";
 
-import Hospedes from "../pages/Hospedes/Hospedes.jsx";
-import Categorias from "../pages/Categorias/Categorias";
-import Quartos from "../pages/Quartos/Quartos";
 
 export const AppRouter = () => {
     return (

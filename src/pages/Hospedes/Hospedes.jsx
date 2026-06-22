@@ -11,8 +11,9 @@ import {
 
 import HospedeForm from "./HospedeForm";
 
-import { getColumns } from "./columns";
+
 import { useHospedes } from "../../shared/hooks/useHospedes.js";
+import {getColumns} from "./collumns.jsx";
 
 
 export default function Hospedes() {
