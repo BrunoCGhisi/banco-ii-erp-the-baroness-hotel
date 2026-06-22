@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import DrawerMenu from "../shared/components/menu";
 
-import Hospedes from "../pages/Hospedes/Hospedes";
+import Hospedes from "../pages/Hospedes/Hospedes.jsx";
 import Categorias from "../pages/Categorias/Categorias";
 import Quartos from "../pages/Quartos/Quartos";
 

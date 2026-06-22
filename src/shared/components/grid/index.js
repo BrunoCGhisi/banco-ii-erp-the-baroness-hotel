@@ -1,2 +1,2 @@
-export { default as GridActions } from "./GridActions.jsx";
-export { default as CustomDataGrid } from "./CustomDataGrid.jsx";
+export { default as GridActions } from "./GridActions";
+export { default as CustomDataGrid } from "./CustomDataGrid";

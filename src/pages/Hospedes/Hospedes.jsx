@@ -3,17 +3,11 @@ import { useState } from "react";
 import AddCircleOutlineOutlinedIcon
     from "@mui/icons-material/AddCircleOutlineOutlined";
 
-import { CustomDataGrid } from "../../shared/components/page";
-
-import {
-    FormDialog,
-    PageHeader,
-} from "../../shared/components";
-
 import HospedeForm from "./HospedeForm";
 
 import { getColumns } from "./columns.jsx";
 import { useApi } from "../../shared/hooks/useApi";
+import {CustomDataGrid, FormDialog, PageHeader} from "../../shared/components/index.js";
 
 export default function Hospedes() {
 
