@@ -3,54 +3,127 @@ import { useState } from "react";
 import AddCircleOutlineOutlinedIcon
     from "@mui/icons-material/AddCircleOutlineOutlined";
 
+import {
+    CustomDataGrid,
+    FormDialog,
+    PageHeader,
+} from "../../shared/components";
+
 import HospedeForm from "./HospedeForm";
 
-import { getColumns } from "./columns.jsx";
-import { useApi } from "../../shared/hooks/useApi";
-import {CustomDataGrid, FormDialog, PageHeader} from "../../shared/components/index.js";
+import { getColumns } from "./columns";
+import { useHospedes } from "../../shared/hooks/useHospedes.js";
+
 
 export default function Hospedes() {
 
     const {
-        data,
+        hospedes,
         loading,
-    } = useApi("hospedes");
+        createHospede,
+        updateHospede,
+        deleteHospede,
+    } = useHospedes();
 
     const [openModal, setOpenModal] =
         useState(false);
 
+    const [selectedHospede, setSelectedHospede] =
+        useState(null);
+
+    const emptyHospede = {
+        nome: "",
+        cpf: "",
+        telefone: "",
+        email: "",
+        endereco: "",
+        data_nascimento: null,
+    };
+
     const [formData, setFormData] =
-        useState({
-            nome: "",
-            cpf: "",
-            telefone: "",
-            email: "",
-        });
+        useState(emptyHospede);
 
     const handleCreate = () => {
 
-        setFormData({
-            nome: "",
-            cpf: "",
-            telefone: "",
-            email: "",
-        });
+        setSelectedHospede(null);
+
+        setFormData(
+            emptyHospede
+        );
 
         setOpenModal(true);
     };
 
     const handleEdit = (row) => {
 
+        setSelectedHospede(row);
+
         setFormData(row);
 
         setOpenModal(true);
     };
 
-    const handleDelete = (row) => {
+    const handleDelete = async (row) => {
 
-        alert(
-            `Excluir ${row.nome}`
-        );
+        const confirmed =
+            window.confirm(
+                `Deseja excluir ${row.nome}?`
+            );
+
+        if (!confirmed) {
+            return;
+        }
+
+        try {
+
+            await deleteHospede(
+                row.id_hospede
+            );
+
+        } catch (error) {
+
+            const mensagem =
+                error?.response?.data?.erro ||
+                "Não foi possível excluir o hóspede.";
+
+            alert(mensagem);
+        }
+    };
+
+    const handleSave = async () => {
+
+        try {
+
+            const payload = {
+                ...formData,
+                data_nascimento:
+                    formData.data_nascimento || null,
+            };
+
+            if (selectedHospede) {
+
+                await updateHospede(
+                    selectedHospede.id_hospede,
+                    payload
+                );
+
+            } else {
+
+                await createHospede(
+                    payload
+                );
+            }
+
+            setOpenModal(false);
+
+        } catch (error) {
+
+            const mensagem =
+                error?.response?.data?.erro ||
+                "Erro ao salvar hóspede.";
+
+            alert(mensagem);
+        }
     };
 
     const columns =
@@ -73,20 +146,22 @@ export default function Hospedes() {
             />
 
             <CustomDataGrid
-                rows={data}
+                rows={hospedes}
                 columns={columns}
                 loading={loading}
             />
 
             <FormDialog
                 open={openModal}
-                title="Hóspede"
+                title={
+                    selectedHospede
+                        ? "Editar Hóspede"
+                        : "Novo Hóspede"
+                }
                 onClose={() =>
                     setOpenModal(false)
                 }
-                onSave={() =>
-                    setOpenModal(false)
-                }
+                onSave={handleSave}
             >
                 <HospedeForm
                     formData={formData}
