@@ -31,23 +31,44 @@ const drawerWidth = 240;
 
 const menuItems = [
     {
-        text: "Produtos",
-        path: "/produtos",
-        icon: <Inventory2Icon />,
+        text: "Hóspedes",
+        path: "/hospedes",
+        icon: <PeopleIcon />,
     },
+
     {
-        text: "Pedidos",
-        path: "/pedidos",
-        icon: <ReceiptLongIcon />,
+        text: "Categorias",
+        path: "/categorias",
+        icon: <PeopleIcon />,
     },
+
     {
-        text: "Cupons",
-        path: "/cupons",
-        icon: <LocalOfferIcon />,
+        text: "Quartos",
+        path: "/quartos",
+        icon: <PeopleIcon />,
     },
+
     {
-        text: "Usuários",
-        path: "/usuarios",
+        text: "Reservas",
+        path: "/reservas",
+        icon: <PeopleIcon />,
+    },
+
+    {
+        text: "Serviços",
+        path: "/servicos",
+        icon: <PeopleIcon />,
+    },
+
+    {
+        text: "Contas",
+        path: "/contas-receber",
+        icon: <PeopleIcon />,
+    },
+
+    {
+        text: "Pagamentos",
+        path: "/pagamentos",
         icon: <PeopleIcon />,
     },
 ];

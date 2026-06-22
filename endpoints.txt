@@ -1,0 +1,29 @@
+GET    /hospedes
+POST   /hospedes
+PUT    /hospedes/:id
+DELETE /hospedes/:id
+
+GET    /categorias
+POST   /categorias
+PUT    /categorias/:id
+DELETE /categorias/:id
+
+GET    /quartos
+POST   /quartos
+PUT    /quartos/:id
+DELETE /quartos/:id
+
+GET    /reservas
+POST   /reservas
+PUT    /reservas/:id/checkin
+PUT    /reservas/:id/checkout
+
+GET    /servicos
+POST   /servicos
+PUT    /servicos/:id
+DELETE /servicos/:id
+
+GET    /contas-receber
+
+GET    /pagamentos
+POST   /pagamentos
