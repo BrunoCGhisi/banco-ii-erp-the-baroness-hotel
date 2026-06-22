@@ -1,11 +1,9 @@
-import {
-    TitleSection,
-    CustomDataGrid,
-} from "../../shared/components/page";
+import {CustomDataGrid} from "../../shared/components/page";
 
 import { useApi } from "../../shared/hooks/useApi";
 
 import { columns } from "./columns";
+import {TitleText} from "../../shared/components/index.js";
 
 export default function Categorias() {
 
@@ -16,7 +14,7 @@ export default function Categorias() {
 
     return (
         <>
-            <TitleSection
+            <TitleText
                 titleText="Categorias"
             />
 

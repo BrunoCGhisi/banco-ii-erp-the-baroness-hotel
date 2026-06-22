@@ -1,11 +1,11 @@
 import {
-    TitleSection,
-    CustomDataGrid,
+    CustomDataGrid
 } from "../../shared/components/page";
 
 import { useApi } from "../../shared/hooks/useApi";
 
 import { columns } from "./columns";
+import {TitleText} from "../../shared/components/index.js";
 
 export default function Quartos() {
 
@@ -16,7 +16,7 @@ export default function Quartos() {
 
     return (
         <>
-            <TitleSection
+            <TitleText
                 titleText="Quartos"
             />
 
