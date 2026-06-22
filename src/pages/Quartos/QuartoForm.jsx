@@ -14,7 +14,7 @@ export default function QuartoForm({
                                        categorias,
                                    }) {
 
-
+    console.log(categorias);
     return (
 
         <Grid
@@ -22,7 +22,7 @@ export default function QuartoForm({
             spacing={2}
         >
 
-            <Grid size={{xs: 12}}>
+            <Grid item xs={12}>
 
                 <TextField
                     fullWidth
@@ -66,7 +66,7 @@ export default function QuartoForm({
                     </InputLabel>
 
                     <Select
-                        variant={outlined}
+                        variant="outlined"
                         label="Categoria"
                         value={
                             formData.id_categoria || ""
@@ -110,7 +110,7 @@ export default function QuartoForm({
                     </InputLabel>
 
                     <Select
-                        variant={outlined}
+                        variant="outlined"
                         label="Status"
                         value={
                             formData.status || ""

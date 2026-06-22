@@ -5,17 +5,8 @@ export default function CustomDataGrid({
                                            rows,
                                            columns,
                                            loading = false,
+                                           getRowId,
                                        }) {
-
-    const getRowId = (row) =>
-        row.id ||
-        row.id_hospede ||
-        row.id_categoria ||
-        row.id_quarto ||
-        row.id_reserva ||
-        row.id_servico ||
-        row.id_conta ||
-        row.id_pagamento;
 
     return (
         <Box

@@ -171,6 +171,7 @@ export default function Quartos() {
                 rows={quartos}
                 columns={columns}
                 loading={loading}
+                getRowId={(row) => row.id_quarto}
             />
 
             <FormDialog

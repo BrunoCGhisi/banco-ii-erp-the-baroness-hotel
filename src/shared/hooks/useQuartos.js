@@ -30,33 +30,22 @@ export const useQuartos = () => {
     const createQuarto =
         async (quarto) => {
 
-            const novo =
-                await quartosService.create(
-                    quarto
-                );
+            await quartosService.create(
+                quarto
+            );
 
-            setQuartos(old => [
-                ...old,
-                novo,
-            ]);
+            await loadQuartos();
         };
 
     const updateQuarto =
         async (id, quarto) => {
 
-            const atualizado =
-                await quartosService.update(
-                    id,
-                    quarto
-                );
-
-            setQuartos(old =>
-                old.map(item =>
-                    item.id_quarto === id
-                        ? atualizado
-                        : item
-                )
+            await quartosService.update(
+                id,
+                quarto
             );
+
+            await loadQuartos();
         };
 
     const deleteQuarto =
@@ -64,11 +53,7 @@ export const useQuartos = () => {
 
             await quartosService.delete(id);
 
-            setQuartos(old =>
-                old.filter(item =>
-                    item.id_quarto !== id
-                )
-            );
+            await loadQuartos();
         };
 
     return {
