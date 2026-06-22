@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import DrawerMenu from "../shared/components/menu";
-import {Categorias, Hospedes, Quartos, Reservas} from "../pages/index.js";
+import {Categorias, Hospedes, Quartos, Reservas, Servicos} from "../pages/index.js";
 
 
 export const AppRouter = () => {
@@ -33,6 +33,11 @@ export const AppRouter = () => {
                     <Route
                         path="/reservas"
                         element={<Reservas />}
+                    />
+
+                    <Route
+                        path="/servicos"
+                        element={<Servicos />}
                     />
 
                 </Routes>

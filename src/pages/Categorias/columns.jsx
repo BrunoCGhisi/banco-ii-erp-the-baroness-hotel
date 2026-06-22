@@ -33,6 +33,23 @@ export const getColumns = (
         field: "valor_diaria",
         headerName: "Valor Diária",
         flex: 1,
+
+        valueFormatter: (value) => {
+
+            if (!value) {
+                return "R$ 0,00";
+            }
+
+            return Number(value)
+                .toLocaleString(
+                    "pt-BR",
+                    {
+                        style: "currency",
+                        currency: "BRL",
+                        minimumFractionDigits: 2,
+                    }
+                );
+        },
     },
 
     {
