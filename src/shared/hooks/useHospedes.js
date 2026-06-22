@@ -23,7 +23,12 @@ export const useHospedes = () => {
             const data =
                 await hospedesService.getAll();
 
-            setHospedes(data);
+            setHospedes(
+                data.map(item => ({
+                    ...item,
+                    id: item.id_hospede,
+                }))
+            );
 
             setLoading(false);
         };
@@ -44,7 +49,10 @@ export const useHospedes = () => {
 
             setHospedes(old => [
                 ...old,
-                novo,
+                {
+                    ...novo,
+                    id: novo.id_hospede,
+                },
             ]);
         };
 
@@ -63,7 +71,10 @@ export const useHospedes = () => {
             setHospedes(old =>
                 old.map(item =>
                     item.id_hospede === id
-                        ? atualizado
+                        ? {
+                            ...atualizado,
+                            id: atualizado.id_hospede,
+                        }
                         : item
                 )
             );

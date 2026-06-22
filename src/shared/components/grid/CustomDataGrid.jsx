@@ -5,10 +5,10 @@ export default function CustomDataGrid({
                                            rows,
                                            columns,
                                            loading = false,
-                                           getRowId,
                                        }) {
 
     return (
+
         <Box
             sx={{
                 height: "auto",
@@ -16,11 +16,11 @@ export default function CustomDataGrid({
                 overflow: "hidden",
             }}
         >
+
             <DataGrid
                 rows={rows}
                 columns={columns}
                 loading={loading}
-                getRowId={getRowId}
                 pageSizeOptions={[6, 12, 24]}
                 initialState={{
                     pagination: {
@@ -31,6 +31,7 @@ export default function CustomDataGrid({
                 }}
                 disableRowSelectionOnClick
                 sx={{
+
                     "& .MuiDataGrid-columnHeader": {
                         color: "primary.main",
                     },
@@ -38,8 +39,10 @@ export default function CustomDataGrid({
                     "& .MuiDataGrid-columnHeaderTitle": {
                         fontWeight: 700,
                     },
+
                 }}
             />
+
         </Box>
     );
 }

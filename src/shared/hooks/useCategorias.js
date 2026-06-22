@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState }
+    from "react";
 
 import { categoriasService }
     from "../services/categoriasService";
@@ -18,7 +19,12 @@ export const useCategorias = () => {
         const data =
             await categoriasService.getAll();
 
-        setCategorias(data);
+        setCategorias(
+            data.map(item => ({
+                ...item,
+                id: item.id_categoria,
+            }))
+        );
 
         setLoading(false);
     };
@@ -38,7 +44,10 @@ export const useCategorias = () => {
 
         setCategorias(old => [
             ...old,
-            nova,
+            {
+                ...nova,
+                id: nova.id_categoria,
+            },
         ]);
     };
 
@@ -56,7 +65,10 @@ export const useCategorias = () => {
         setCategorias(old =>
             old.map(item =>
                 item.id_categoria === id
-                    ? atualizada
+                    ? {
+                        ...atualizada,
+                        id: atualizada.id_categoria,
+                    }
                     : item
             )
         );

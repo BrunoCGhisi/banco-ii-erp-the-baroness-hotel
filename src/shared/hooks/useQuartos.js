@@ -18,7 +18,12 @@ export const useQuartos = () => {
         const data =
             await quartosService.getAll();
 
-        setQuartos(data);
+        setQuartos(
+            data.map(item => ({
+                ...item,
+                id: item.id_quarto,
+            }))
+        );
 
         setLoading(false);
     };
