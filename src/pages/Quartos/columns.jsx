@@ -25,7 +25,7 @@ export const columns = [
     },
 
     {
-        field: "id_categoria",
+        field: "categoria",
         headerName: "Categoria",
         flex: 1,
     },

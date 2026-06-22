@@ -4,7 +4,7 @@ import {
 
 import { useApi } from "../../shared/hooks/useApi";
 
-import { columns } from "./columns";
+import { columns } from "./columns.jsx";
 import {TitleText} from "../../shared/components/index.js";
 
 export default function Quartos() {
