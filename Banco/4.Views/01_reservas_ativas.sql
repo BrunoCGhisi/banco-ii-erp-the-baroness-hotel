@@ -24,22 +24,32 @@ STATUS CONSIDERADOS
 =========================================================
 */
 
-CREATE OR REPLACE VIEW vw_reservas_ativas AS
+CREATE VIEW vw_reservas_ativas AS
 SELECT
+
     r.id_reserva,
+    r.id_hospede_responsavel,
+    r.id_quarto,
     h.nome AS hospede_responsavel,
     q.numero AS numero_quarto,
     r.checkin_previsto,
     r.checkout_previsto,
+    r.quantidade_hospedes,
     r.status
+
 FROM reserva r
+
          JOIN hospede h
-              ON h.id_hospede = r.id_hospede_responsavel
+              ON h.id_hospede =
+                 r.id_hospede_responsavel
+
          JOIN quarto q
-              ON q.id_quarto = r.id_quarto
+              ON q.id_quarto =
+                 r.id_quarto
+
 WHERE r.status IN (
-                   'RESERVADA',
-                   'CHECKIN_REALIZADO'
+       'RESERVADA',
+       'CHECKIN_REALIZADO'
     );
 
 SELECT * FROM vw_reservas_ativas;
