@@ -50,5 +50,4 @@ FROM quarto q
          LEFT JOIN categoria_quarto cq
                    ON cq.id_categoria = q.id_categoria;
 
-SELECT *
-FROM vw_ocupacao_quartos;
+SELECT * FROM vw_ocupacao_quartos;

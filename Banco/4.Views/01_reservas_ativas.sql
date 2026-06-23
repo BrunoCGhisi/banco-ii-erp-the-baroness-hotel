@@ -42,5 +42,4 @@ WHERE r.status IN (
                    'CHECKIN_REALIZADO'
     );
 
-SELECT *
-FROM vw_reservas_ativas;
+SELECT * FROM vw_reservas_ativas;

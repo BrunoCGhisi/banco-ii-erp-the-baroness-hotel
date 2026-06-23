@@ -46,5 +46,4 @@ WHERE q.status = 'DISPONIVEL'
         )
 );
 
-SELECT *
-FROM vw_quartos_disponiveis_hoje;
+SELECT * FROM vw_quartos_disponiveis_hoje;

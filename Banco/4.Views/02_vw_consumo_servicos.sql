@@ -44,5 +44,4 @@ FROM consumo_servico cs
          JOIN servico s
               ON s.id_servico = cs.id_servico;
 
-SELECT *
-FROM vw_consumo_servicos;
+SELECT * FROM vw_consumo_servicos;

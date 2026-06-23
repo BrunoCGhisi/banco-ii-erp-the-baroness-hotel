@@ -64,5 +64,4 @@ FROM pagamento p
                     ON fp.id_forma_pagamento =
                        p.id_forma_pagamento;
 
-SELECT *
-FROM vw_pagamentos;
+SELECT * FROM vw_pagamentos;

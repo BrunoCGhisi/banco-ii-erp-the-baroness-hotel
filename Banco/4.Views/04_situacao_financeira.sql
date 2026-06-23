@@ -75,5 +75,4 @@ GROUP BY
     cr.valor_total,
     cr.status;
 
-SELECT *
-FROM vw_situacao_financeira;
+SELECT * FROM vw_situacao_financeira;
