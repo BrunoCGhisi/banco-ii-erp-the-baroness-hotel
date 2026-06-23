@@ -1,17 +1,17 @@
 import { createTheme } from "@mui/material";
-import {amber} from "@mui/material/colors";
+import {amber, yellow} from "@mui/material/colors";
 
 export const DarkTheme = createTheme({
     palette: {
         mode: "dark",
 
         primary: {
-            main: amber[500],
+            main: yellow["A200"],
         },
 
         background: {
-            default: "#160A0D",
-            paper: "#211015",
+            default: "#490a1b",
+            paper: "#43101e",
         },
     },
 });
