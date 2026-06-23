@@ -83,6 +83,16 @@ export const useReservas = () => {
             await loadReservas();
         };
 
+    const deleteReserva =
+        async (id) => {
+
+            await reservasService.delete(
+                id
+            );
+
+            await loadReservas();
+        };
+
     return {
 
         reservas,
@@ -90,6 +100,7 @@ export const useReservas = () => {
 
         createReserva,
         updateReserva,
+        deleteReserva,
 
         realizarCheckin,
         realizarCheckout,

@@ -39,6 +39,7 @@ export default function Reservas() {
 
         createReserva,
         updateReserva,
+        deleteReserva,
 
         realizarCheckin,
         realizarCheckout,
@@ -121,11 +122,30 @@ export default function Reservas() {
     };
 
     const handleDelete =
-        async () => {
+        async (row) => {
 
-            alert(
-                "Delete ainda não implementado."
-            );
+            const confirmar =
+                window.confirm(
+                    `Deseja remover a reserva ${row.id_reserva}?`
+                );
+
+            if (!confirmar) {
+                return;
+            }
+
+            try {
+
+                await deleteReserva(
+                    row.id_reserva
+                );
+
+            } catch (error) {
+
+                alert(
+                    error.response?.data?.erro ||
+                    "Erro ao remover reserva"
+                );
+            }
         };
 
     const handleSave =

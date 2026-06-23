@@ -3,7 +3,6 @@ import { api } from "./api";
 export const reservasService = {
 
     async getAll() {
-
         const response =
             await api.get("/reservas/");
 
@@ -11,7 +10,6 @@ export const reservasService = {
     },
 
     async create(reserva) {
-
         const response =
             await api.post(
                 "/reservas/",
@@ -21,11 +19,7 @@ export const reservasService = {
         return response.data;
     },
 
-    async update(
-        id,
-        reserva
-    ) {
-
+    async update(id, reserva) {
         const response =
             await api.put(
                 `/reservas/${id}`,
@@ -35,8 +29,17 @@ export const reservasService = {
         return response.data;
     },
 
-    async checkin(id) {
+    async delete(id) {
 
+        const response =
+            await api.delete(
+                `/reservas/${id}`
+            );
+
+        return response.data;
+    },
+
+    async checkin(id) {
         const response =
             await api.put(
                 `/reservas/${id}/checkin`
@@ -46,7 +49,6 @@ export const reservasService = {
     },
 
     async checkout(id) {
-
         const response =
             await api.put(
                 `/reservas/${id}/checkout`
