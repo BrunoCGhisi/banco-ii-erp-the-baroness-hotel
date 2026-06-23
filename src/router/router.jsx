@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import DrawerMenu from "../shared/components/menu";
-import {Categorias, Hospedes, Quartos, Reservas, Servicos} from "../pages/index.js";
+import {Categorias, ContasReceber, Hospedes, Pagamentos, Quartos, Reservas, Servicos} from "../pages/index.js";
 
 
 export const AppRouter = () => {
@@ -39,7 +39,14 @@ export const AppRouter = () => {
                         path="/servicos"
                         element={<Servicos />}
                     />
-
+                    <Route
+                        path="/contas-receber"
+                        element={<ContasReceber />}
+                    />
+                    <Route
+                        path="/Pagamentos"
+                        element={<Pagamentos />}
+                    />
                 </Routes>
             </DrawerMenu>
         </BrowserRouter>
