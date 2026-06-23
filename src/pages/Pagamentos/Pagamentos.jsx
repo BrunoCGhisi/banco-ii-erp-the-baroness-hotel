@@ -1,6 +1,6 @@
 import {
     CustomDataGrid,
-    PageHeader
+    PageHeader, TitleText
 } from "../../shared/components";
 
 import {
@@ -20,10 +20,8 @@ export default function Pagamentos(){
 
     return (
         <>
-            <PageHeader
-                titleText="Pagamentos"
-
-            />
+            <TitleText sx={{mb: 2}}
+                       titleText="Pagamentos" />
 
             <CustomDataGrid
                 rows={pagamentos}

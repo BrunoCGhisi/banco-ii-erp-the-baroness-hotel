@@ -6,7 +6,7 @@ import {
 import {
     CustomDataGrid,
     FormDialog,
-    PageHeader,
+    PageHeader, TitleText,
 } from "../../shared/components";
 
 
@@ -110,9 +110,8 @@ export default function ContasReceber(){
 
     return (
         <>
-            <PageHeader
-                titleText="Financeiro"
-            />
+            <TitleText sx={{mb: 2}}
+                       titleText="Financeiro" />
 
             <CustomDataGrid
                 rows={contas}
