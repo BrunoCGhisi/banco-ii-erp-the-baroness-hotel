@@ -23,5 +23,28 @@ Regras implementadas:
 ====================================================
 */
 
-CREATE OR REPLACE PROCEDURE sp_realizar_checkin(...)
-...
+CREATE OR REPLACE PROCEDURE sp_realizar_checkin(
+   p_id_reserva INT
+)
+LANGUAGE plpgsql
+AS $$
+DECLARE
+v_status VARCHAR(30);
+BEGIN
+
+SELECT status
+INTO v_status
+FROM reserva
+WHERE id_reserva = p_id_reserva;
+
+IF v_status <> 'RESERVADA' THEN
+       RAISE EXCEPTION
+       'Reserva deve estar RESERVADA';
+END IF;
+UPDATE reserva
+SET
+    checkin_real = CURRENT_DATE,
+    status = 'CHECKIN_REALIZADO'
+WHERE id_reserva = p_id_reserva;
+END;
+$$;
