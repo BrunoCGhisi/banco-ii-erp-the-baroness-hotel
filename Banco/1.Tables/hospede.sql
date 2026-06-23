@@ -1,0 +1,9 @@
+CREATE TABLE hospede (
+    id_hospede SERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    cpf VARCHAR(14) UNIQUE NOT NULL,
+    telefone VARCHAR(20),
+    email VARCHAR(100),
+    endereco VARCHAR(150),
+    data_nascimento DATE
+);
