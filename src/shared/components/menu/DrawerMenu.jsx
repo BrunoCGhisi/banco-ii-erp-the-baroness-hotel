@@ -13,63 +13,94 @@ import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 
-import MenuIcon from "@mui/icons-material/Menu";
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import DarkModeOutlinedIcon
+    from "@mui/icons-material/DarkModeOutlined";
 
-import Inventory2Icon from "@mui/icons-material/Inventory2";
-import ReceiptLongIcon from "@mui/icons-material/ReceiptLong";
-import LocalOfferIcon from "@mui/icons-material/LocalOffer";
-import PeopleIcon from "@mui/icons-material/People";
+import LightModeOutlinedIcon
+    from "@mui/icons-material/LightModeOutlined";
+
+import {
+    useAppThemeContext
+} from "../../contexts";
+
+import PeopleIcon
+    from "@mui/icons-material/People";
+import EventNoteIcon
+    from "@mui/icons-material/EventNote";
+import CategoryIcon
+    from "@mui/icons-material/Category";
+import RoomServiceIcon
+    from "@mui/icons-material/RoomService";
+import PaymentsIcon
+    from "@mui/icons-material/Payments";
 
 import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
 
+import ListItemButton
+    from "@mui/material/ListItemButton";
+
+
+import ListItemIcon
+    from "@mui/material/ListItemIcon";
+
+import HotelIcon
+    from "@mui/icons-material/Hotel";
+
+import ListItemText
+    from "@mui/material/ListItemText";
+
+import ReceiptIcon from '@mui/icons-material/Receipt';
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import MenuIcon from '@mui/icons-material/Menu';
+
+
+
+import {Quartos} from "../../../pages/index.js";
 const drawerWidth = 240;
+
+
 
 const menuItems = [
     {
-        text: "Hóspedes",
-        path: "/Hospedes",
-        icon: <PeopleIcon />,
+        text:"Reservas",
+        path:"/reservas",
+        icon:<EventNoteIcon/>
+    },
+    {
+        text:"Hóspedes",
+        path:"/hospedes",
+        icon:<PeopleIcon/>
     },
 
     {
-        text: "Categorias",
-        path: "/categorias",
-        icon: <PeopleIcon />,
+        text:"Quartos",
+        path:"/quartos",
+        icon:<HotelIcon/>
     },
 
     {
-        text: "Quartos",
-        path: "/quartos",
-        icon: <PeopleIcon />,
+        text:"Categorias",
+        path:"/categorias",
+        icon:<CategoryIcon/>
     },
 
     {
-        text: "Reservas",
-        path: "/reservas",
-        icon: <PeopleIcon />,
+        text:"Serviços",
+        path:"/servicos",
+        icon:<RoomServiceIcon/>
     },
 
     {
-        text: "Serviços",
-        path: "/servicos",
-        icon: <PeopleIcon />,
+        text:"Financeiro",
+        path:"/contas-receber",
+        icon:<PaymentsIcon/>
     },
 
     {
-        text: "Contas",
-        path: "/contas-receber",
-        icon: <PeopleIcon />,
-    },
-
-    {
-        text: "Pagamentos",
-        path: "/pagamentos",
-        icon: <PeopleIcon />,
+        text:"Pagamentos",
+        path:"/Pagamentos",
+        icon:<ReceiptIcon/>
     },
 ];
 
@@ -146,12 +177,18 @@ const Drawer = styled(MuiDrawer, {
     }),
 }));
 
+
 export default function DrawerMenu({ children }) {
     const theme = useTheme();
 
     const navigate = useNavigate();
 
     const [open, setOpen] = React.useState(true);
+
+    const {
+        themeName,
+        toggleTheme,
+    } = useAppThemeContext();
 
     const handleDrawerOpen = () => {
         setOpen(true);
@@ -165,7 +202,11 @@ export default function DrawerMenu({ children }) {
         <Box sx={{ display: "flex", width: "100%" }}>
             <CssBaseline />
 
-            <AppBar position="fixed" open={open}>
+            <AppBar position="fixed" open={open}
+                    sx={{
+                backgroundColor: "background.paper",
+                color: "text.primary",
+            }}>
                 <Toolbar>
                     {!open && (
                         <IconButton
@@ -177,18 +218,30 @@ export default function DrawerMenu({ children }) {
                             <MenuIcon />
                         </IconButton>
                     )}
-
                     <Typography
                         variant="h6"
                         noWrap
                         component="div"
                         sx={{
-                            fontWeight: 700,
-                            color: "primary.main",
+                            fontWeight:700,
+                            color:"primary.main",
                         }}
                     >
-                        Falkon ERP
+                        Hotel da Baronesa
                     </Typography>
+                    <Box sx={{ flexGrow:1 }}/>
+                    <IconButton
+                        color="primary"
+                        onClick={toggleTheme}
+                    >
+                        {
+                            themeName === "darkTheme"
+                                ?
+                                <LightModeOutlinedIcon />
+                                :
+                                <DarkModeOutlinedIcon />
+                        }
+                    </IconButton>
                 </Toolbar>
             </AppBar>
 
